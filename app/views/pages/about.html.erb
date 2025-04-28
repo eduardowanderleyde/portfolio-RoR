@@ -1,0 +1,49 @@
+<div class="container mx-auto px-4 py-8">
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-4xl font-bold mb-8">Sobre Mim</h1>
+
+    <div class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Formação</h2>
+      <div class="space-y-4">
+        <% @educations.each do |education| %>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold"><%= education.institution %></h3>
+            <p class="text-gray-600"><%= education.degree %></p>
+            <p class="text-sm text-gray-500">
+              <%= education.start_date.strftime("%B %Y") %> - 
+              <%= education.end_date&.strftime("%B %Y") || "Presente" %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Experiência Profissional</h2>
+      <div class="space-y-4">
+        <% @experiences.each do |experience| %>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold"><%= experience.company %></h3>
+            <p class="text-gray-600"><%= experience.role %></p>
+            <p class="text-sm text-gray-500">
+              <%= experience.start_date.strftime("%B %Y") %> - 
+              <%= experience.end_date&.strftime("%B %Y") || "Presente" %>
+            </p>
+            <p class="mt-2"><%= experience.description %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-semibold mb-4">Habilidades Técnicas</h2>
+      <div class="flex flex-wrap gap-2">
+        <% @skills.each do |skill| %>
+          <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">
+            <%= skill %>
+          </span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div> 
