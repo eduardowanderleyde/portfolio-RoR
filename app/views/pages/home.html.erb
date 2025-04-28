@@ -1,35 +1,176 @@
-<div class="container mx-auto px-4 py-8">
-  <div class="text-center mb-12">
-    <h1 class="text-4xl font-bold mb-4">Eduardo Wanderley</h1>
-    <p class="text-xl text-gray-600">Desenvolvedor Ruby on Rails</p>
-  </div>
+<!-- Hero Section -->
+<div class="min-h-screen bg-gradient-to-br from-blue-600 to-indigo-700 relative overflow-hidden">
+  <!-- Navbar -->
+  <nav class="container mx-auto px-6 py-6">
+    <div class="flex justify-between items-center">
+      <div class="text-white text-2xl font-bold">DevMan</div>
+      <div class="hidden md:flex items-center space-x-8">
+        <%= link_to "Home", root_path, class: "text-white/90 hover:text-white" %>
+        <%= link_to "About Me", about_path, class: "text-white/90 hover:text-white" %>
+        <%= link_to "Portfolio", projects_path, class: "text-white/90 hover:text-white" %>
+        <%= link_to "Contact", contact_path, class: "text-white/90 hover:text-white" %>
+        <%= link_to "Download CV", "#", class: "bg-red-500 text-white px-6 py-2 rounded-full hover:bg-red-600 transition-all" %>
+      </div>
+    </div>
+  </nav>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <% @projects.each do |project| %>
-      <div class="bg-white rounded-lg shadow-md overflow-hidden">
-        <% if project.image.attached? %>
-          <%= image_tag project.image, class: "w-full h-48 object-cover" %>
-        <% end %>
-        <div class="p-6">
-          <h2 class="text-xl font-semibold mb-2"><%= project.title %></h2>
-          <p class="text-gray-600 mb-4"><%= project.description %></p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <% project.technologies.split(',').each do |tech| %>
-              <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
-                <%= tech.strip %>
-              </span>
-            <% end %>
-          </div>
-          <div class="flex justify-between">
-            <a href="<%= project.github_link %>" target="_blank" class="text-blue-600 hover:text-blue-800">
-              GitHub
-            </a>
-            <a href="<%= project.deploy_link %>" target="_blank" class="text-blue-600 hover:text-blue-800">
-              Deploy
-            </a>
+  <!-- Main Content -->
+  <main class="container mx-auto px-6 pt-20">
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
+      <!-- Left Content -->
+      <div class="lg:w-1/2 text-white z-10">
+        <div class="space-y-6">
+          <h2 class="text-3xl text-white/90">Hello I'm</h2>
+          <h1 class="text-6xl font-bold">Eduardo Wanderley</h1>
+          <p class="text-2xl text-white/90">Desenvolvedor Ruby on Rails from Brasil</p>
+          <p class="text-lg text-white/80 max-w-xl">
+            Transformando ideias em soluções web elegantes e eficientes, com foco em qualidade e experiência do usuário.
+          </p>
+          <div class="flex gap-6 pt-8">
+            <%= link_to "Get a Quote", contact_path, class: "btn-primary" %>
+            <%= link_to "About Me", about_path, class: "btn-secondary" %>
           </div>
         </div>
       </div>
-    <% end %>
+
+      <!-- Right Content -->
+      <div class="lg:w-1/2 relative">
+        <!-- Main Image Container -->
+        <div class="hero-card relative max-w-[600px] mx-auto">
+          <%= image_tag "profile2.jpeg", 
+              class: "w-full aspect-[4/3] object-cover object-center rounded-[1.8rem]", 
+              style: "filter: contrast(1.1) brightness(1.1);",
+              alt: "Eduardo Wanderley" %>
+          
+          <!-- Floating Elements -->
+          <div class="absolute top-4 left-4 bg-white rounded-2xl shadow-lg p-4 backdrop-blur-sm">
+            <div class="flex items-center gap-3">
+              <div class="text-yellow-500 text-3xl">🏆</div>
+              <div class="text-gray-800">
+                <div class="font-bold text-xl">100+</div>
+                <div class="text-sm">Projetos Entregues</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="absolute top-4 right-4 bg-white rounded-2xl shadow-lg p-4 backdrop-blur-sm">
+            <div class="flex items-center gap-3">
+              <div class="font-bold text-3xl text-blue-600">5+</div>
+              <div class="text-gray-800">
+                Anos de<br>Experiência
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative Circle -->
+        <div class="absolute bottom-0 right-0 w-32 h-32 rounded-full border-2 border-white/20 flex items-center justify-center rotate-90 text-white/20 text-sm">
+          Creative Web Developer
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Background Blur Elements -->
+  <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-blue-500/30 rounded-full filter blur-[120px]"></div>
+  <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-indigo-500/30 rounded-full filter blur-[120px]"></div>
+</div>
+
+<!-- Skills Section -->
+<div class="bg-gray-50 py-16">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12">Tecnologias</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="text-center">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <i class="fas fa-gem text-4xl text-red-500 mb-4"></i>
+          <h3 class="font-semibold">Ruby on Rails</h3>
+        </div>
+      </div>
+      <div class="text-center">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <i class="fab fa-js text-4xl text-yellow-500 mb-4"></i>
+          <h3 class="font-semibold">JavaScript</h3>
+        </div>
+      </div>
+      <div class="text-center">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <i class="fab fa-html5 text-4xl text-orange-500 mb-4"></i>
+          <h3 class="font-semibold">HTML5/CSS3</h3>
+        </div>
+      </div>
+      <div class="text-center">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <i class="fas fa-database text-4xl text-blue-500 mb-4"></i>
+          <h3 class="font-semibold">PostgreSQL</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Featured Projects Section -->
+<div class="py-16">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12">Projetos em Destaque</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <% @projects.limit(3).each do |project| %>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <% if project.image.attached? %>
+            <%= image_tag project.image, class: "w-full h-48 object-cover" %>
+          <% end %>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2"><%= project.title %></h3>
+            <p class="text-gray-600 mb-4"><%= project.description %></p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <% project.technologies.split(',').each do |tech| %>
+                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                  <%= tech.strip %>
+                </span>
+              <% end %>
+            </div>
+            <div class="flex justify-between">
+              <%= link_to "GitHub", project.github_link, target: "_blank", class: "text-blue-600 hover:text-blue-800" %>
+              <%= link_to "Demo", project.deploy_link, target: "_blank", class: "text-blue-600 hover:text-blue-800" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="text-center mt-8">
+      <%= link_to "Ver Todos os Projetos", projects_path, class: "inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition" %>
+    </div>
+  </div>
+</div>
+
+<!-- Experience Section -->
+<div class="bg-gray-50 py-16">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12">Experiência Profissional</h2>
+    <div class="max-w-3xl mx-auto">
+      <% @experiences.limit(3).each do |experience| %>
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+          <h3 class="text-xl font-semibold mb-2"><%= experience.role %></h3>
+          <p class="text-gray-600 mb-2"><%= experience.company %></p>
+          <p class="text-sm text-gray-500 mb-4">
+            <%= experience.start_date.strftime("%B %Y") %> - 
+            <%= experience.end_date ? experience.end_date.strftime("%B %Y") : "Presente" %>
+          </p>
+          <p class="text-gray-700"><%= experience.description %></p>
+        </div>
+      <% end %>
+    </div>
+    <div class="text-center mt-8">
+      <%= link_to "Ver Histórico Completo", experiences_path, class: "inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition" %>
+    </div>
+  </div>
+</div>
+
+<!-- Contact CTA Section -->
+<div class="py-16">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-6">Vamos Trabalhar Juntos?</h2>
+    <p class="text-xl text-gray-600 mb-8">Estou sempre aberto a novos projetos e oportunidades interessantes</p>
+    <%= link_to "Entre em Contato", contact_path, class: "inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition" %>
   </div>
 </div> 
