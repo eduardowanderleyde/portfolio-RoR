@@ -1,138 +1,129 @@
-<!-- Hero Section -->
-<section class="hero-section">
-  <!-- Background Elements -->
-  <div class="hero-background">
-    <div class="hero-background-blur hero-background-blur-top"></div>
-    <div class="hero-background-blur hero-background-blur-bottom"></div>
-  </div>
-
-  <!-- Main Content -->
-  <div class="hero-content">
-    <!-- Location Badge -->
-    <div class="hero-location-badge">
-      <i class="far fa-map-marker-alt mr-2 text-teal-400"></i>
-      <span class="text-white/90">Desenvolvedor Full Stack • São Paulo, Brasil</span>
-    </div>
-
-    <!-- Main Title -->
-    <h1 class="hero-title">Eduardo Wanderley</h1>
-    <p class="hero-subtitle">
-      Transformando ideias em soluções web elegantes e eficientes
-    </p>
-
-    <!-- Profile Image -->
-    <div class="hero-profile-container">
-      <div class="hero-profile-border"></div>
-      <%= image_tag "profile.jpeg", class: "hero-profile-image", alt: "Eduardo Wanderley" %>
-    </div>
-
-    <!-- CTA Buttons -->
-    <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full max-w-md mx-auto">
-      <%= link_to projects_path, class: "btn-primary group" do %>
-        <span>Ver Projetos</span>
-        <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
-      <% end %>
-
-      <%= link_to contact_path, class: "btn-secondary group" do %>
-        <span>Entre em Contato</span>
-        <i class="fas fa-envelope ml-2 transform group-hover:scale-110 transition-transform"></i>
-      <% end %>
-    </div>
-  </div>
-</section>
-
-<!-- Technologies Section -->
-<section class="tech-section">
-  <div class="tech-background"></div>
-  <div class="tech-container">
-    <h2 class="tech-title">Tecnologias</h2>
-    <p class="tech-description">
-      Especializado em desenvolvimento web moderno com foco em Ruby on Rails
-    </p>
-    
-    <div class="tech-grid">
-      <!-- Ruby on Rails -->
-      <div class="tech-card group">
-        <div class="tech-icon-container tech-ruby">
-          <i class="fas fa-gem tech-icon"></i>
+<div class="min-h-screen bg-gradient-to-br from-blue-600 to-indigo-700">
+  <!-- Hero Section -->
+  <div class="container mx-auto px-4 py-16">
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+      <!-- Text Content -->
+      <div class="lg:w-1/2 text-white">
+        <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm mb-6">
+          <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+          </svg>
+          <span>São Paulo, Brasil</span>
         </div>
-        <h3 class="tech-name">Ruby on Rails</h3>
-        <p class="tech-card-description">Backend robusto e ágil</p>
+        
+        <h1 class="text-4xl lg:text-6xl font-bold mb-6">
+          Eduardo Wanderley
+        </h1>
+        
+        <p class="text-xl text-white/80 mb-8">
+          Desenvolvedor Full Stack especializado em criar soluções web elegantes e eficientes
+        </p>
+        
+        <div class="flex gap-4">
+          <%= link_to "Ver Projetos", "#projects", class: "btn-primary" %>
+          <%= link_to "Entre em Contato", "#contact", class: "btn-secondary" %>
+        </div>
       </div>
-
-      <!-- JavaScript -->
-      <div class="tech-card group">
-        <div class="tech-icon-container tech-js">
-          <i class="fab fa-js tech-icon"></i>
+      
+      <!-- Profile Image -->
+      <div class="lg:w-1/3">
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-r from-teal-400 to-blue-500 rounded-2xl blur-xl opacity-50 animate-pulse"></div>
+          <%= image_tag "profile.jpeg", class: "relative w-64 h-64 object-cover rounded-2xl border-4 border-white/20 mx-auto" %>
         </div>
-        <h3 class="tech-name">JavaScript</h3>
-        <p class="tech-card-description">Interatividade moderna</p>
-      </div>
-
-      <!-- HTML5 -->
-      <div class="tech-card group">
-        <div class="tech-icon-container tech-html">
-          <i class="fab fa-html5 tech-icon"></i>
-        </div>
-        <h3 class="tech-name">HTML5</h3>
-        <p class="tech-card-description">Estrutura semântica</p>
-      </div>
-
-      <!-- CSS3 -->
-      <div class="tech-card group">
-        <div class="tech-icon-container tech-css">
-          <i class="fab fa-css3-alt tech-icon"></i>
-        </div>
-        <h3 class="tech-name">CSS3</h3>
-        <p class="tech-card-description">Estilização moderna</p>
       </div>
     </div>
   </div>
-</section>
+
+  <!-- Technologies Section -->
+  <section id="technologies" class="py-20 bg-white/5 backdrop-blur-lg">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-bold text-white text-center mb-12">Tecnologias</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <!-- Ruby on Rails -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition">
+          <div class="w-16 h-16 bg-red-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl">💎</span>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">Ruby on Rails</h3>
+          <p class="text-white/70">Backend robusto e ágil</p>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition">
+          <div class="w-16 h-16 bg-yellow-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl">⚡</span>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">JavaScript</h3>
+          <p class="text-white/70">Interatividade moderna</p>
+        </div>
+
+        <!-- HTML5 -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition">
+          <div class="w-16 h-16 bg-orange-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl">🎨</span>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">HTML5</h3>
+          <p class="text-white/70">Estrutura semântica</p>
+        </div>
+
+        <!-- CSS3 -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition">
+          <div class="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl">✨</span>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">CSS3</h3>
+          <p class="text-white/70">Estilização moderna</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
 <!-- Projects Section -->
-<section class="projects-section">
+<section id="projects" class="py-20 bg-white/5 backdrop-blur-lg">
   <div class="container mx-auto px-4">
-    <h2 class="projects-title">Projetos em Destaque</h2>
-    <p class="projects-description">
+    <h2 class="text-3xl lg:text-4xl font-bold text-white text-center mb-12">Projetos em Destaque</h2>
+    <p class="text-xl text-white/80 text-center mb-12">
       Conheça alguns dos projetos que desenvolvi
     </p>
     
-    <div class="projects-grid">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <% @projects.limit(3).each do |project| %>
-        <div class="project-card group">
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-white/20 transition">
           <% if project.image.attached? %>
-            <div class="project-image-container">
-              <%= image_tag project.image, class: "project-image" %>
+            <div class="aspect-video overflow-hidden">
+              <%= image_tag project.image, class: "w-full h-full object-cover" %>
             </div>
           <% end %>
           
-          <div class="project-content">
-            <h3 class="project-title"><%= project.title %></h3>
-            <p class="project-description"><%= truncate(project.description, length: 120) %></p>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-white mb-3"><%= project.title %></h3>
+            <p class="text-white/70 mb-4"><%= truncate(project.description, length: 120) %></p>
             
-            <div class="project-tech-tags">
+            <div class="flex flex-wrap gap-2 mb-4">
               <% project.technologies.split(',').each do |tech| %>
-                <span class="project-tech-tag">
+                <span class="px-3 py-1 bg-white/10 rounded-full text-sm text-white/90">
                   <%= tech.strip %>
                 </span>
               <% end %>
             </div>
             
-            <div class="project-links">
-              <div class="project-social-links">
-                <%= link_to project.github_link, target: "_blank", class: "project-github-link group" do %>
-                  <i class="fab fa-github text-xl transform group-hover:scale-110 transition-transform"></i>
+            <div class="flex items-center justify-between">
+              <div class="flex gap-4">
+                <%= link_to project.github_link, target: "_blank", class: "text-white/80 hover:text-white transition" do %>
+                  <i class="fab fa-github text-xl"></i>
                 <% end %>
                 
-                <%= link_to project.deploy_link, target: "_blank", class: "project-deploy-link group" do %>
-                  <i class="fas fa-external-link-alt text-lg transform group-hover:rotate-12 transition-transform"></i>
+                <%= link_to project.deploy_link, target: "_blank", class: "text-white/80 hover:text-white transition" do %>
+                  <i class="fas fa-external-link-alt text-lg"></i>
                 <% end %>
               </div>
               
-              <%= link_to project_path(project), class: "project-details-link group" do %>
+              <%= link_to project_path(project), class: "text-white/90 hover:text-white flex items-center gap-2 transition" do %>
                 Ver Detalhes
-                <i class="fas fa-arrow-right ml-1 transform group-hover:translate-x-1 transition-transform"></i>
+                <i class="fas fa-arrow-right"></i>
               <% end %>
             </div>
           </div>
@@ -140,26 +131,26 @@
       <% end %>
     </div>
 
-    <div class="projects-cta">
-      <%= link_to projects_path, class: "projects-cta-button group" do %>
+    <div class="text-center mt-12">
+      <%= link_to projects_path, class: "inline-flex items-center px-6 py-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition" do %>
         <span>Ver Todos os Projetos</span>
-        <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+        <i class="fas fa-arrow-right ml-2"></i>
       <% end %>
     </div>
   </div>
 </section>
 
 <!-- Contact Section -->
-<section class="contact-section">
+<section id="contact" class="py-20 bg-gradient-to-br from-blue-500/20 to-indigo-500/20 backdrop-blur-lg">
   <div class="container mx-auto px-4 text-center">
-    <h2 class="contact-title">Vamos Trabalhar Juntos?</h2>
-    <p class="contact-description">
+    <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">Vamos Trabalhar Juntos?</h2>
+    <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
       Estou sempre aberto a novos projetos e oportunidades interessantes. 
       Se você tem um projeto em mente, vamos conversar!
     </p>
-    <%= link_to contact_path, class: "contact-button group" do %>
+    <%= link_to contact_path, class: "inline-flex items-center px-8 py-4 bg-white/10 hover:bg-white/20 rounded-full text-white text-lg transition" do %>
       <span>Entre em Contato</span>
-      <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+      <i class="fas fa-arrow-right ml-2"></i>
     <% end %>
   </div>
 </section> 

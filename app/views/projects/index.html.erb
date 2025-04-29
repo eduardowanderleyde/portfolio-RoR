@@ -3,6 +3,12 @@
   <div class="max-w-4xl mx-auto px-4 text-center">
     <h1 class="text-4xl font-bold mb-4">Meus Projetos</h1>
     <p class="text-xl text-gray-400">Conheça alguns dos projetos que desenvolvi</p>
+    
+    <% if user_signed_in? %>
+      <div class="mt-8">
+        <%= link_to "Novo Projeto", new_project_path, class: "bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition" %>
+      </div>
+    <% end %>
   </div>
 </div>
 
@@ -33,22 +39,36 @@
           </div>
           
           <!-- Links -->
-          <div class="flex space-x-4">
-            <% if project.github_link.present? %>
-              <%= link_to project.github_link, target: "_blank", class: "text-gray-600 hover:text-gray-900" do %>
-                <i class="fab fa-github text-xl"></i>
+          <div class="flex items-center justify-between">
+            <div class="flex space-x-4">
+              <% if project.github_link.present? %>
+                <%= link_to project.github_link, target: "_blank", class: "text-gray-600 hover:text-gray-900" do %>
+                  <i class="fab fa-github text-xl"></i>
+                <% end %>
               <% end %>
-            <% end %>
-            
-            <% if project.deploy_link.present? %>
-              <%= link_to project.deploy_link, target: "_blank", class: "text-blue-600 hover:text-blue-800" do %>
-                <i class="fas fa-external-link-alt text-xl"></i>
+              
+              <% if project.deploy_link.present? %>
+                <%= link_to project.deploy_link, target: "_blank", class: "text-blue-600 hover:text-blue-800" do %>
+                  <i class="fas fa-external-link-alt text-xl"></i>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
             
-            <%= link_to project_path(project), class: "text-blue-600 hover:text-blue-800 ml-auto" do %>
-              Ver mais <i class="fas fa-arrow-right ml-1"></i>
-            <% end %>
+            <div class="flex items-center space-x-4">
+              <%= link_to project_path(project), class: "text-blue-600 hover:text-blue-800" do %>
+                Ver mais <i class="fas fa-arrow-right ml-1"></i>
+              <% end %>
+              
+              <% if user_signed_in? %>
+                <%= link_to edit_project_path(project), class: "text-yellow-600 hover:text-yellow-800" do %>
+                  <i class="fas fa-edit"></i>
+                <% end %>
+                
+                <%= button_to project_path(project), method: :delete, data: { turbo_confirm: "Tem certeza?" }, class: "text-red-600 hover:text-red-800" do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

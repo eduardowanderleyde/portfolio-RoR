@@ -1,10 +1,10 @@
 @layer components {
   .projects-section {
-    @apply py-24 bg-gradient-to-br from-purple-900 via-purple-800 to-blue-900 text-white;
+    @apply py-24;
   }
 
   .projects-title {
-    @apply text-4xl font-bold text-center mb-4;
+    @apply text-4xl sm:text-5xl font-bold text-white text-center mb-6;
   }
 
   .projects-description {
@@ -12,19 +12,19 @@
   }
 
   .projects-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16;
   }
 
   .project-card {
-    @apply bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden group hover:transform hover:scale-105 transition-all duration-300;
+    @apply bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden hover:bg-white/20 transition-colors;
   }
 
   .project-image-container {
-    @apply relative h-48 overflow-hidden;
+    @apply relative aspect-video overflow-hidden;
   }
 
   .project-image {
-    @apply w-full h-full object-cover;
+    @apply w-full h-full object-cover transition-transform duration-300 group-hover:scale-105;
   }
 
   .project-content {
@@ -32,46 +32,46 @@
   }
 
   .project-title {
-    @apply text-xl font-bold mb-2 text-white;
+    @apply text-xl font-semibold text-white mb-3;
   }
 
   .project-description {
-    @apply text-white/80 mb-4;
+    @apply text-white/70 mb-4;
   }
 
   .project-tech-tags {
-    @apply flex flex-wrap gap-2 mb-4;
+    @apply flex flex-wrap gap-2 mb-6;
   }
 
   .project-tech-tag {
-    @apply px-3 py-1 bg-white/10 text-white/90 rounded-full text-sm font-medium;
+    @apply px-3 py-1 rounded-full bg-white/10 text-sm text-white/80;
   }
 
   .project-links {
-    @apply flex justify-between items-center;
+    @apply flex items-center justify-between;
   }
 
   .project-social-links {
-    @apply space-x-4;
+    @apply flex items-center gap-4;
   }
 
   .project-github-link {
-    @apply text-white/80 hover:text-white;
+    @apply text-white/70 hover:text-white transition-colors;
   }
 
   .project-deploy-link {
-    @apply text-teal-400 hover:text-teal-300;
+    @apply text-white/70 hover:text-white transition-colors;
   }
 
   .project-details-link {
-    @apply text-teal-400 hover:text-teal-300 font-medium;
+    @apply inline-flex items-center text-white/80 hover:text-white transition-colors;
   }
 
   .projects-cta {
-    @apply text-center mt-16;
+    @apply text-center;
   }
 
   .projects-cta-button {
-    @apply inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-teal-400 to-blue-500 text-white font-semibold hover:opacity-90 transition-opacity;
+    @apply inline-flex items-center px-8 py-4 rounded-xl bg-white/10 text-white font-semibold hover:bg-white/20 transition-colors;
   }
 } 

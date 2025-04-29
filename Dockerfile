@@ -9,7 +9,8 @@ RUN apt-get update -qq && apt-get install -y \
     build-essential \
     libpq-dev \
     nodejs \
-    npm
+    npm \
+    netcat-openbsd
 
 # Instalar o Yarn
 RUN npm install -g yarn

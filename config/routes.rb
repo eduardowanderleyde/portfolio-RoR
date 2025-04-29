@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'pages#home'
 
-  resources :projects, only: [:index, :show]
+  resources :projects
   resources :experiences
   resources :educations
   resources :contact_messages, only: [:new, :create]

@@ -1,13 +1,7 @@
 @tailwind base;
 @tailwind components;
+@tailwind utilities;
 
-/* Importação dos componentes */
-@import "../../javascript/components/hero.css";
-@import "../../javascript/components/technologies.css";
-@import "../../javascript/components/projects.css";
-@import "../../javascript/components/contact.css";
-
-/* Estilos base e utilitários */
 @layer components {
   .btn-primary {
     @apply inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-teal-400 to-blue-500 text-white font-semibold hover:opacity-90 transition-opacity;
@@ -17,17 +11,204 @@
     @apply inline-flex items-center px-8 py-4 rounded-xl border-2 border-white/20 text-white font-semibold hover:bg-white/10 transition-colors;
   }
 
-  .section-title {
-    @apply text-4xl font-bold text-center mb-4;
+  /* Hero Section */
+  .hero-section {
+    @apply relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden;
   }
 
-  .section-description {
-    @apply text-xl text-gray-600 text-center mb-16 max-w-2xl mx-auto;
+  .hero-background {
+    @apply absolute inset-0 z-0;
   }
 
-  .hero-card {
-    @apply bg-white/10 backdrop-blur-lg rounded-[2rem] p-2 shadow-xl;
+  .hero-background-blur {
+    @apply absolute w-[500px] h-[500px] rounded-full opacity-30 blur-3xl;
   }
-}
 
-@tailwind utilities; 
+  .hero-background-blur-top {
+    @apply bg-teal-400 -top-48 -right-48;
+  }
+
+  .hero-background-blur-bottom {
+    @apply bg-blue-500 -bottom-48 -left-48;
+  }
+
+  .hero-content {
+    @apply relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto;
+  }
+
+  .hero-location-badge {
+    @apply inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-lg mb-8;
+  }
+
+  .hero-title {
+    @apply text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .hero-subtitle {
+    @apply text-xl sm:text-2xl text-white/80 mb-12 max-w-2xl;
+  }
+
+  .hero-profile-container {
+    @apply relative w-48 h-48 mb-12;
+  }
+
+  .hero-profile-border {
+    @apply absolute inset-0 rounded-full border-4 border-white/20 animate-spin-slow;
+  }
+
+  .hero-profile-image {
+    @apply w-full h-full object-cover rounded-full border-4 border-white/40;
+  }
+
+  /* Technologies Section */
+  .tech-section {
+    @apply relative py-24 px-4 bg-white/5 backdrop-blur-lg;
+  }
+
+  .tech-container {
+    @apply relative z-10 container mx-auto;
+  }
+
+  .tech-title {
+    @apply text-4xl sm:text-5xl font-bold text-white text-center mb-6;
+  }
+
+  .tech-description {
+    @apply text-xl text-white/80 text-center mb-16 max-w-2xl mx-auto;
+  }
+
+  .tech-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto;
+  }
+
+  .tech-card {
+    @apply bg-white/10 backdrop-blur-sm rounded-2xl p-6 flex flex-col items-center hover:bg-white/20 transition-colors;
+  }
+
+  .tech-icon-container {
+    @apply w-16 h-16 rounded-xl flex items-center justify-center mb-4;
+  }
+
+  .tech-ruby {
+    @apply bg-red-500/20;
+  }
+
+  .tech-js {
+    @apply bg-yellow-500/20;
+  }
+
+  .tech-html {
+    @apply bg-orange-500/20;
+  }
+
+  .tech-css {
+    @apply bg-blue-500/20;
+  }
+
+  .tech-icon {
+    @apply text-2xl text-white;
+  }
+
+  .tech-name {
+    @apply text-lg font-semibold text-white mb-2;
+  }
+
+  .tech-card-description {
+    @apply text-sm text-white/70;
+  }
+
+  /* Projects Section */
+  .projects-section {
+    @apply py-24 bg-white/5 backdrop-blur-lg;
+  }
+
+  .projects-title {
+    @apply text-4xl sm:text-5xl font-bold text-white text-center mb-6;
+  }
+
+  .projects-description {
+    @apply text-xl text-white/80 text-center mb-16 max-w-2xl mx-auto;
+  }
+
+  .projects-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16;
+  }
+
+  .project-card {
+    @apply bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden hover:bg-white/20 transition-colors;
+  }
+
+  .project-image-container {
+    @apply relative aspect-video overflow-hidden;
+  }
+
+  .project-image {
+    @apply w-full h-full object-cover transition-transform duration-300 group-hover:scale-105;
+  }
+
+  .project-content {
+    @apply p-6;
+  }
+
+  .project-title {
+    @apply text-xl font-semibold text-white mb-3;
+  }
+
+  .project-description {
+    @apply text-white/70 mb-4;
+  }
+
+  .project-tech-tags {
+    @apply flex flex-wrap gap-2 mb-6;
+  }
+
+  .project-tech-tag {
+    @apply px-3 py-1 rounded-full bg-white/10 text-sm text-white/80;
+  }
+
+  .project-links {
+    @apply flex items-center justify-between;
+  }
+
+  .project-social-links {
+    @apply flex items-center gap-4;
+  }
+
+  .project-github-link {
+    @apply text-white/70 hover:text-white transition-colors;
+  }
+
+  .project-deploy-link {
+    @apply text-white/70 hover:text-white transition-colors;
+  }
+
+  .project-details-link {
+    @apply inline-flex items-center text-white/80 hover:text-white transition-colors;
+  }
+
+  .projects-cta {
+    @apply text-center;
+  }
+
+  .projects-cta-button {
+    @apply inline-flex items-center px-8 py-4 rounded-xl bg-white/10 text-white font-semibold hover:bg-white/20 transition-colors;
+  }
+
+  /* Contact Section */
+  .contact-section {
+    @apply py-24 bg-white/5 backdrop-blur-lg;
+  }
+
+  .contact-title {
+    @apply text-4xl sm:text-5xl font-bold text-white text-center mb-6;
+  }
+
+  .contact-description {
+    @apply text-xl text-white/80 text-center mb-12 max-w-2xl mx-auto;
+  }
+
+  .contact-button {
+    @apply inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-teal-400 to-blue-500 text-white font-semibold hover:opacity-90 transition-opacity;
+  }
+} 
