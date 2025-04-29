@@ -1,17 +1,33 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@tailwind base;
+@tailwind components;
 
+/* Importação dos componentes */
+@import "../../javascript/components/hero.css";
+@import "../../javascript/components/technologies.css";
+@import "../../javascript/components/projects.css";
+@import "../../javascript/components/contact.css";
+
+/* Estilos base e utilitários */
 @layer components {
   .btn-primary {
-    @apply bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all;
+    @apply inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-teal-400 to-blue-500 text-white font-semibold hover:opacity-90 transition-opacity;
   }
   
   .btn-secondary {
-    @apply text-white px-6 py-3 hover:text-blue-200 transition-all;
+    @apply inline-flex items-center px-8 py-4 rounded-xl border-2 border-white/20 text-white font-semibold hover:bg-white/10 transition-colors;
+  }
+
+  .section-title {
+    @apply text-4xl font-bold text-center mb-4;
+  }
+
+  .section-description {
+    @apply text-xl text-gray-600 text-center mb-16 max-w-2xl mx-auto;
   }
 
   .hero-card {
     @apply bg-white/10 backdrop-blur-lg rounded-[2rem] p-2 shadow-xl;
   }
-} 
+}
+
+@tailwind utilities; 

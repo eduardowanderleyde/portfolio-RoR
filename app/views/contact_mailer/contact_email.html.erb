@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Nova Mensagem de Contato</h1>
+    
+    <p><strong>Nome:</strong> <%= @contact_message.name %></p>
+    <p><strong>E-mail:</strong> <%= @contact_message.email %></p>
+    
+    <h2>Mensagem:</h2>
+    <p><%= simple_format(@contact_message.message) %></p>
+    
+    <hr>
+    <p><small>Esta mensagem foi enviada através do formulário de contato do seu portfólio.</small></p>
+  </body>
+</html> 

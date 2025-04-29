@@ -1,0 +1,95 @@
+@layer components {
+  .tech-section {
+    @apply py-24 bg-white relative overflow-hidden;
+  }
+
+  .tech-background {
+    @apply absolute inset-0 bg-gradient-to-br from-gray-50 to-white;
+  }
+
+  .tech-container {
+    @apply container mx-auto px-4 relative z-10;
+  }
+
+  .tech-title {
+    @apply text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-purple-600 to-blue-600 text-transparent bg-clip-text;
+  }
+
+  .tech-description {
+    @apply text-xl text-gray-600 text-center mb-20 max-w-2xl mx-auto leading-relaxed;
+  }
+
+  .tech-grid {
+    @apply grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12;
+  }
+
+  .tech-card {
+    @apply relative flex flex-col items-center p-6 md:p-8 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 bg-white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .tech-icon-container {
+    @apply w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-xl mb-6 transition-transform duration-300 transform;
+  }
+
+  .tech-card:hover .tech-icon-container {
+    @apply scale-110;
+  }
+
+  .tech-icon {
+    @apply text-3xl md:text-4xl transition-transform duration-300;
+  }
+
+  .tech-card:hover .tech-icon {
+    @apply scale-110;
+  }
+
+  .tech-name {
+    @apply text-lg md:text-xl font-semibold text-gray-900 mb-2 transition-colors duration-300;
+  }
+
+  .tech-card-description {
+    @apply text-sm md:text-base text-gray-600 text-center transition-colors duration-300;
+  }
+
+  /* Variantes de cores para cada tecnologia */
+  .tech-ruby {
+    @apply bg-gradient-to-br from-red-50 to-red-100;
+  }
+  .tech-ruby .tech-icon {
+    @apply text-red-500;
+  }
+  .tech-card:hover .tech-ruby {
+    @apply from-red-100 to-red-200;
+  }
+
+  .tech-js {
+    @apply bg-gradient-to-br from-yellow-50 to-yellow-100;
+  }
+  .tech-js .tech-icon {
+    @apply text-yellow-500;
+  }
+  .tech-card:hover .tech-js {
+    @apply from-yellow-100 to-yellow-200;
+  }
+
+  .tech-html {
+    @apply bg-gradient-to-br from-orange-50 to-orange-100;
+  }
+  .tech-html .tech-icon {
+    @apply text-orange-500;
+  }
+  .tech-card:hover .tech-html {
+    @apply from-orange-100 to-orange-200;
+  }
+
+  .tech-css {
+    @apply bg-gradient-to-br from-blue-50 to-blue-100;
+  }
+  .tech-css .tech-icon {
+    @apply text-blue-500;
+  }
+  .tech-card:hover .tech-css {
+    @apply from-blue-100 to-blue-200;
+  }
+} 

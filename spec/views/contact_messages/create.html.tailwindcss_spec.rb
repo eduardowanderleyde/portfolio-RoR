@@ -1,5 +1,3 @@
 require 'rails_helper'
 
-RSpec.describe "contact_messages/create.html.tailwindcss", type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+# Não precisamos de testes para esta view, pois redirecionamos após o create

@@ -11,5 +11,9 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe ContactMessagesHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "contact_message_form_title" do
+    it "returns the correct title" do
+      expect(helper.contact_message_form_title).to eq("Entre em Contato")
+    end
+  end
 end

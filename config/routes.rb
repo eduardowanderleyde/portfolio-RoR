@@ -11,11 +11,20 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'pages#home'
 
-  resources :projects
+  resources :projects, only: [:index, :show]
   resources :experiences
   resources :educations
   resources :contact_messages, only: [:new, :create]
 
-  get 'about', to: 'pages#about'
-  get 'contact', to: 'contact_messages#new'
+  get 'about', to: 'pages#about', as: :about
+  get 'portfolio', to: 'projects#index', as: :portfolio
+  get 'contact', to: 'contact_messages#new', as: :contact
+  get 'download_cv', to: 'pages#download_cv', as: :download_cv
+
+  # Área administrativa
+  namespace :admin do
+    resources :projects
+    resources :contact_messages, only: [:index, :show, :destroy]
+    get 'dashboard', to: 'dashboard#index'
+  end
 end

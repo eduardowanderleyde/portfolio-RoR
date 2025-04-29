@@ -1,9 +1,10 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_owner, only: [:edit, :update, :destroy]
 
   def index
-    @projects = Project.all
+    @projects = Project.all.order(created_at: :desc)
   end
 
   def show
@@ -47,5 +48,11 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:title, :description, :technologies, :github_link, :deploy_link, :image)
+  end
+
+  def ensure_owner
+    unless @project.user == current_user
+      redirect_to projects_path, alert: 'Você não tem permissão para realizar esta ação.'
+    end
   end
 end 

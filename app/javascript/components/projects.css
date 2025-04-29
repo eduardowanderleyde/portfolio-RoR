@@ -1,0 +1,77 @@
+@layer components {
+  .projects-section {
+    @apply py-24 bg-gradient-to-br from-purple-900 via-purple-800 to-blue-900 text-white;
+  }
+
+  .projects-title {
+    @apply text-4xl font-bold text-center mb-4;
+  }
+
+  .projects-description {
+    @apply text-xl text-white/80 text-center mb-16 max-w-2xl mx-auto;
+  }
+
+  .projects-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  }
+
+  .project-card {
+    @apply bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden group hover:transform hover:scale-105 transition-all duration-300;
+  }
+
+  .project-image-container {
+    @apply relative h-48 overflow-hidden;
+  }
+
+  .project-image {
+    @apply w-full h-full object-cover;
+  }
+
+  .project-content {
+    @apply p-6;
+  }
+
+  .project-title {
+    @apply text-xl font-bold mb-2 text-white;
+  }
+
+  .project-description {
+    @apply text-white/80 mb-4;
+  }
+
+  .project-tech-tags {
+    @apply flex flex-wrap gap-2 mb-4;
+  }
+
+  .project-tech-tag {
+    @apply px-3 py-1 bg-white/10 text-white/90 rounded-full text-sm font-medium;
+  }
+
+  .project-links {
+    @apply flex justify-between items-center;
+  }
+
+  .project-social-links {
+    @apply space-x-4;
+  }
+
+  .project-github-link {
+    @apply text-white/80 hover:text-white;
+  }
+
+  .project-deploy-link {
+    @apply text-teal-400 hover:text-teal-300;
+  }
+
+  .project-details-link {
+    @apply text-teal-400 hover:text-teal-300 font-medium;
+  }
+
+  .projects-cta {
+    @apply text-center mt-16;
+  }
+
+  .projects-cta-button {
+    @apply inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-teal-400 to-blue-500 text-white font-semibold hover:opacity-90 transition-opacity;
+  }
+} 

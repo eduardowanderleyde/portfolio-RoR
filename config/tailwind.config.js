@@ -2,10 +2,11 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   content: [
-    './public/*.html',
+    './app/views/**/*.{erb,haml,html,slim}',
     './app/helpers/**/*.rb',
+    './app/assets/stylesheets/**/*.css',
     './app/javascript/**/*.js',
-    './app/views/**/*.{erb,haml,html,slim}'
+    './app/javascript/**/*.css'
   ],
   theme: {
     extend: {
@@ -22,6 +23,9 @@ module.exports = {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-20px)' },
         }
+      },
+      colors: {
+        // Adicione suas cores personalizadas aqui se necessário
       }
     },
   },

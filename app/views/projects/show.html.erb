@@ -1,0 +1,107 @@
+<!-- Header -->
+<div class="bg-gray-900 text-white py-20">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h1 class="text-4xl font-bold mb-4"><%= @project.title %></h1>
+    <div class="flex justify-center space-x-4">
+      <% if @project.github_link.present? %>
+        <%= link_to @project.github_link, target: "_blank", class: "text-gray-300 hover:text-white" do %>
+          <i class="fab fa-github text-2xl"></i>
+        <% end %>
+      <% end %>
+      
+      <% if @project.deploy_link.present? %>
+        <%= link_to @project.deploy_link, target: "_blank", class: "text-gray-300 hover:text-white" do %>
+          <i class="fas fa-external-link-alt text-2xl"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- Project Content -->
+<div class="max-w-4xl mx-auto px-4 py-16">
+  <!-- Image -->
+  <% if @project.image.attached? %>
+    <div class="mb-12">
+      <%= image_tag @project.image, class: "w-full h-96 object-cover rounded-lg shadow-lg" %>
+    </div>
+  <% end %>
+
+  <!-- Description -->
+  <div class="prose prose-lg max-w-none mb-12">
+    <h2 class="text-3xl font-bold mb-6">Sobre o Projeto</h2>
+    <%= simple_format(@project.description, class: "text-gray-700") %>
+  </div>
+
+  <!-- Technologies -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-bold mb-6">Tecnologias Utilizadas</h2>
+    <div class="flex flex-wrap gap-3">
+      <% @project.technologies.split(',').each do |tech| %>
+        <span class="px-4 py-2 bg-gray-100 text-gray-800 rounded-full text-sm font-medium">
+          <%= tech.strip %>
+        </span>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Links -->
+  <div class="flex flex-wrap gap-4">
+    <% if @project.github_link.present? %>
+      <%= link_to @project.github_link, target: "_blank", class: "inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition" do %>
+        <i class="fab fa-github mr-2"></i>
+        Ver no GitHub
+      <% end %>
+    <% end %>
+
+    <% if @project.deploy_link.present? %>
+      <%= link_to @project.deploy_link, target: "_blank", class: "inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" do %>
+        <i class="fas fa-external-link-alt mr-2"></i>
+        Ver Demo
+      <% end %>
+    <% end %>
+  </div>
+
+  <!-- Admin Actions -->
+  <% if current_user && current_user == @project.user %>
+    <div class="mt-12 pt-8 border-t">
+      <div class="flex space-x-4">
+        <%= link_to edit_project_path(@project), class: "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50" do %>
+          <i class="fas fa-edit mr-2"></i>
+          Editar Projeto
+        <% end %>
+
+        <%= button_to project_path(@project), method: :delete, data: { confirm: "Tem certeza que deseja excluir este projeto?" }, class: "inline-flex items-center px-4 py-2 border border-red-300 shadow-sm text-sm font-medium rounded-md text-red-700 bg-white hover:bg-red-50" do %>
+          <i class="fas fa-trash-alt mr-2"></i>
+          Excluir Projeto
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<!-- Related Projects -->
+<div class="bg-gray-50 py-16">
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-12 text-center">Outros Projetos</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <% Project.where.not(id: @project.id).limit(3).each do |project| %>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <% if project.image.attached? %>
+            <%= image_tag project.image, class: "w-full h-48 object-cover" %>
+          <% else %>
+            <div class="w-full h-48 bg-gray-200 flex items-center justify-center">
+              <i class="fas fa-code text-4xl text-gray-400"></i>
+            </div>
+          <% end %>
+          
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2"><%= project.title %></h3>
+            <p class="text-gray-600 mb-4"><%= truncate(project.description, length: 100) %></p>
+            <%= link_to "Ver Projeto", project_path(project), class: "text-blue-600 hover:text-blue-800" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div> 

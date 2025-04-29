@@ -1,0 +1,89 @@
+<!-- Header -->
+<div class="bg-gray-900 text-white py-20">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h1 class="text-4xl font-bold mb-4">Meus Projetos</h1>
+    <p class="text-xl text-gray-400">Conheça alguns dos projetos que desenvolvi</p>
+  </div>
+</div>
+
+<!-- Projects Grid -->
+<div class="max-w-7xl mx-auto px-4 py-16">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <% @projects.each do |project| %>
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <% if project.image.attached? %>
+          <%= image_tag project.image, class: "w-full h-48 object-cover" %>
+        <% else %>
+          <div class="w-full h-48 bg-gray-200 flex items-center justify-center">
+            <i class="fas fa-code text-4xl text-gray-400"></i>
+          </div>
+        <% end %>
+        
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2"><%= project.title %></h3>
+          <p class="text-gray-600 mb-4"><%= truncate(project.description, length: 100) %></p>
+          
+          <!-- Technologies -->
+          <div class="mb-4">
+            <% project.technologies.split(',').each do |tech| %>
+              <span class="inline-block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                <%= tech.strip %>
+              </span>
+            <% end %>
+          </div>
+          
+          <!-- Links -->
+          <div class="flex space-x-4">
+            <% if project.github_link.present? %>
+              <%= link_to project.github_link, target: "_blank", class: "text-gray-600 hover:text-gray-900" do %>
+                <i class="fab fa-github text-xl"></i>
+              <% end %>
+            <% end %>
+            
+            <% if project.deploy_link.present? %>
+              <%= link_to project.deploy_link, target: "_blank", class: "text-blue-600 hover:text-blue-800" do %>
+                <i class="fas fa-external-link-alt text-xl"></i>
+              <% end %>
+            <% end %>
+            
+            <%= link_to project_path(project), class: "text-blue-600 hover:text-blue-800 ml-auto" do %>
+              Ver mais <i class="fas fa-arrow-right ml-1"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold mb-6">Meus Projetos</h1>
+
+  <% if @projects.any? %>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <% @projects.each do |project| %>
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h2 class="text-xl font-semibold mb-2"><%= project.title %></h2>
+          <p class="text-gray-600 mb-4"><%= truncate(project.description, length: 150) %></p>
+          <div class="flex justify-between items-center">
+            <%= link_to "Ver Detalhes", project_path(project), class: "text-blue-600 hover:text-blue-800" %>
+            <% if current_user && current_user == project.user %>
+              <div class="space-x-2">
+                <%= link_to "Editar", edit_project_path(project), class: "text-yellow-600 hover:text-yellow-800" %>
+                <%= button_to "Excluir", project_path(project), method: :delete, data: { confirm: "Tem certeza?" }, class: "text-red-600 hover:text-red-800" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p class="text-gray-600">Nenhum projeto encontrado.</p>
+  <% end %>
+
+  <% if current_user %>
+    <div class="mt-8">
+      <%= link_to "Novo Projeto", new_project_path, class: "bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" %>
+    </div>
+  <% end %>
+</div> 
